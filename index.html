@@ -10,7 +10,7 @@
 	<div id="app">
 		<h1>Cours Vue.js</h1>
 		<h2>Compteur A : {{ checkValue() }}</h2>
-		<button class="increment" v-on:click="diminuer">-</button>
+		<button class="increment" @click="diminuer">-</button>
 		<button class="increment" v-on:click="augmenter">+</button>
 		<hr>
 		<h2>Compteur B : {{ compteurB }} | {{ memo }}</h2>
