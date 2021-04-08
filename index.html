@@ -9,36 +9,13 @@
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<h2>Compteur : {{ compteur }}</h2>
-		<button class="increment" v-on:click="augmenter">+</button>
+		<h2>Compteur A : {{ checkValue() }}</h2>
 		<button class="increment" v-on:click="diminuer">-</button>
+		<button class="increment" v-on:click="augmenter">+</button>
 		<hr>
-		<canvas v-on:mousemove="coords"></canvas>
-		<p>{{ axeX }} / {{ axeY }}</p>
-		<br>
-		<!--		<button v-on:click="foo">Cliquez-moi</button>-->
-		<!--		<button v-on:click.once="foo">Cliquez-moi</button>-->
-
-		<div v-on:click="foo">
-			<p>Lorem ipsum dolor.<br>
-				<button id="modifier" v-on:click.stop="foo">Cliquez-moi</button>
-			</p>
-		</div>
-		<hr>
-		<form v-on:submit.prevent="onSubmit">
-			<button>Valider #1</button>
-		</form>
-
-		<br>
-		<form v-on:submit="foo">
-			<button>Valider #2</button>
-		</form>
-		<hr>
-		<p>Ton nom</p>
-		<input type="text" v-model="valeur">
-		<p>Je m'appelle {{ valeur }}</p>
-		<hr>
-		<div v-html="htmlBrut">{{ htmlBrut }}</div>
+		<h2>Compteur B : {{ compteurB }} | {{ memo }}</h2>
+		<button class="increment" v-on:click="compteurB--">-</button>
+		<button class="increment" v-on:click="compteurB++">+</button>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -46,32 +23,27 @@
 		new Vue( {
 					 el     : '#app',
 					 data   : {
-						 compteur: 0,
-						 axeX    : 0,
-						 axeY    : 0,
-						 valeur  : "",
-						 htmlBrut: "<p>Mon HTML brut</p>"
+						 compteurA: 0,
+						 compteurB: 0
 					 },
 					 methods: {
-						 augmenter    : function () {
-							 this.compteur++;
+						 augmenter : function () {
+							 this.compteurA++;
 						 },
-						 diminuer     : function () {
-							 this.compteur--;
+						 diminuer  : function () {
+							 this.compteurA--;
 						 },
-						 coords       : function ( event ) {
-							 // console.log(event);
-							 this.axeX = event.offsetX;
-							 this.axeY = event.offsetY;
-						 },
-						 foo          : function ( e ) {
-							 console.log( "click !" );
-							 e.preventDefault();
-						 },
-						 onSubmit     : function () {
-							 console.log( "Formulaire soumis" );
+						 checkValue: function () {
+							 console.log("La fonction s'est lancée !");
+							 return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
 						 }
-					 }
+					 },
+			computed: {
+					 	memo : function (  ){
+							console.log("\"memo\" s'est lancée !");
+							return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
+						}
+			}
 				 } );
 	</script>
 </body>
