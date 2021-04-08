@@ -4,18 +4,17 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>Vue.JS Playground</title>
+	<link href="style.css" rel="stylesheet">
 </head>
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<p>{{ txt }}</p>
-		<p>{{ presentation( 2, 4 ) }}</p>
-		<a v-bind:href="URLVueJS">Le site de Vue.js</a>
+		<h2>Compteur : {{ compteur }}</h2>
+		<button v-on:click="augmenter">+</button>
+		<button v-on:click="diminuer">-</button>
 		<br>
-		<!--VERSION COURTE DE v-bind-->
-		<a :href="URLSvelte">Le site de Svelte</a>
-		<br>
-		<img alt="" v-bind:src="URLImg">
+		<canvas v-on:mousemove="coords"></canvas>
+		<p>{{ axeX }} / {{ axeY }}</p>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -23,15 +22,21 @@
 		new Vue( {
 					 el     : '#app',
 					 data   : {
-						 txt      : 'Hello World',
-						 nb       : 10,
-						 URLVueJS : 'https://vuejs.org',
-						 URLSvelte: 'https://svelte.dev',
-						 URLImg   : 'https://images.unsplash.com/photo-1544982877-f0f4427dee24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fHZ1ZSUyMGpzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+						 compteur: 0,
+						 axeX    : 0,
+						 axeY    : 0
 					 },
 					 methods: {
-						 presentation: function () {
-							 return this.txt + ' et  ' + this.nb;
+						 augmenter: function () {
+							 this.compteur++;
+						 },
+						 diminuer : function () {
+							 this.compteur--;
+						 },
+						 coords   : function ( event ) {
+							 // console.log(event);
+							 this.axeX = event.offsetX;
+							 this.axeY = event.offsetY;
 						 }
 					 }
 				 } );
