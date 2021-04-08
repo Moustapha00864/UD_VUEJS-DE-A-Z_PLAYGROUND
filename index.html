@@ -36,7 +36,7 @@
 		<hr>
 		<p>Ton nom</p>
 		<input type="text" v-on:keyup.enter="inputFunction">
-
+		<hr>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -46,7 +46,8 @@
 					 data   : {
 						 compteur: 0,
 						 axeX    : 0,
-						 axeY    : 0
+						 axeY    : 0,
+						 valeur  : ""
 					 },
 					 methods: {
 						 augmenter    : function () {
@@ -67,8 +68,10 @@
 						 onSubmit     : function () {
 							 console.log( "Formulaire soumis" );
 						 },
-						 inputFunction: function () {
-							 console.log( "Tu as appuyé sur ENTRÉE." );
+						 inputFunction: function ( e ) {
+							 // console.log( "Tu as appuyé sur ENTRÉE." );
+							 this.valeur = e.target.value;
+							 console.log( this.valeur );
 						 }
 					 }
 				 } );
