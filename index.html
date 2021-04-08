@@ -35,7 +35,8 @@
 		</form>
 		<hr>
 		<p>Ton nom</p>
-		<input type="text" v-on:keyup.enter="inputFunction">
+		<input type="text" v-model="valeur">
+		<p>Je m'appelle {{ valeur }}</p>
 		<hr>
 	</div>
 
@@ -67,11 +68,6 @@
 						 },
 						 onSubmit     : function () {
 							 console.log( "Formulaire soumis" );
-						 },
-						 inputFunction: function ( e ) {
-							 // console.log( "Tu as appuyé sur ENTRÉE." );
-							 this.valeur = e.target.value;
-							 console.log( this.valeur );
 						 }
 					 }
 				 } );
