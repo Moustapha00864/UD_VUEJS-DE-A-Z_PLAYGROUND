@@ -33,6 +33,10 @@
 		<form v-on:submit="foo">
 			<button>Valider #2</button>
 		</form>
+		<hr>
+		<p>Ton nom</p>
+		<input type="text" v-on:keyup.enter="inputFunction">
+
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -45,23 +49,26 @@
 						 axeY    : 0
 					 },
 					 methods: {
-						 augmenter: function () {
+						 augmenter    : function () {
 							 this.compteur++;
 						 },
-						 diminuer : function () {
+						 diminuer     : function () {
 							 this.compteur--;
 						 },
-						 coords   : function ( event ) {
+						 coords       : function ( event ) {
 							 // console.log(event);
 							 this.axeX = event.offsetX;
 							 this.axeY = event.offsetY;
 						 },
-						 foo      : function (e) {
+						 foo          : function ( e ) {
 							 console.log( "click !" );
 							 e.preventDefault();
 						 },
-						 onSubmit : function () {
-							 console.log("Formulaire soumis");
+						 onSubmit     : function () {
+							 console.log( "Formulaire soumis" );
+						 },
+						 inputFunction: function () {
+							 console.log( "Tu as appuyé sur ENTRÉE." );
 						 }
 					 }
 				 } );
