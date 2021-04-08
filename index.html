@@ -10,11 +10,29 @@
 	<div id="app">
 		<h1>Cours Vue.js</h1>
 		<h2>Compteur : {{ compteur }}</h2>
-		<button v-on:click="augmenter">+</button>
-		<button v-on:click="diminuer">-</button>
-		<br>
+		<button class="increment" v-on:click="augmenter">+</button>
+		<button class="increment" v-on:click="diminuer">-</button>
+		<hr>
 		<canvas v-on:mousemove="coords"></canvas>
 		<p>{{ axeX }} / {{ axeY }}</p>
+		<br>
+		<!--		<button v-on:click="foo">Cliquez-moi</button>-->
+		<!--		<button v-on:click.once="foo">Cliquez-moi</button>-->
+
+		<div v-on:click="foo">
+			<p>Lorem ipsum dolor.<br>
+				<button id="modifier" v-on:click.stop="foo">Cliquez-moi</button>
+			</p>
+		</div>
+		<hr>
+		<form v-on:submit.prevent="onSubmit">
+			<button>Valider #1</button>
+		</form>
+
+		<br>
+		<form v-on:submit="foo">
+			<button>Valider #2</button>
+		</form>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -37,6 +55,13 @@
 							 // console.log(event);
 							 this.axeX = event.offsetX;
 							 this.axeY = event.offsetY;
+						 },
+						 foo      : function (e) {
+							 console.log( "click !" );
+							 e.preventDefault();
+						 },
+						 onSubmit : function () {
+							 console.log("Formulaire soumis");
 						 }
 					 }
 				 } );
