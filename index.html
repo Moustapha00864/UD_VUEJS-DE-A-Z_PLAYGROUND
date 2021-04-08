@@ -21,12 +21,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
 		new Vue( {
-					 el     : '#app',
-					 data   : {
+					 el      : '#app',
+					 data    : {
 						 compteurA: 0,
 						 compteurB: 0
 					 },
-					 methods: {
+					 methods : {
 						 augmenter : function () {
 							 this.compteurA++;
 						 },
@@ -34,16 +34,23 @@
 							 this.compteurA--;
 						 },
 						 checkValue: function () {
-							 console.log("La fonction s'est lancée !");
+							 console.log( "La fonction s'est lancée !" );
 							 return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
 						 }
 					 },
-			computed: {
-					 	memo : function (  ){
-							console.log("\"memo\" s'est lancée !");
-							return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
-						}
-			}
+					 watch   : {
+						 compteurA: function () {
+							 setTimeout( () => {
+								 this.compteurA = 0;
+							 }, 10000 );
+						 }
+					 },
+					 computed: {
+						 memo: function () {
+							 console.log( "\"memo\" s'est lancée !" );
+							 return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
+						 }
+					 }
 				 } );
 	</script>
 </body>
