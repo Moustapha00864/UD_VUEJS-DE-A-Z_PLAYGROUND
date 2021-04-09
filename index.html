@@ -9,7 +9,7 @@
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<div class="box" v-bind:class="{ red: toggleColor }">
+		<div v-bind:class="boxCSS">
 			<p>Lorem ipsum dolor sit amet.</p>
 		</div>
 		<button v-on:click=" toggleColor = !toggleColor">background ON/OFF</button>
@@ -18,9 +18,17 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
 		new Vue( {
-					 el  : '#app',
-					 data: {
-						 toggleColor: true
+					 el      : '#app',
+					 data    : {
+						 toggleColor: false
+					 },
+					 computed: {
+						 boxCSS: function () {
+							 return {
+								 red: this.toggleColor,
+								 box: true
+							 };
+						 }
 					 }
 				 } );
 	</script>
