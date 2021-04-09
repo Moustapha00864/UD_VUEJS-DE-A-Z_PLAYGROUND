@@ -1,33 +1,24 @@
-*, ::before, ::after {
-	box-sizing : content-box;
-	/*margin     : 0;*/
-	/*padding    : 0;*/
-}
-
 body {
 	font-family : Arial, sans-serif;
 }
 
-canvas {
-	width      : 300px;
-	height     : 200px;
-	border     : 1px solid #333;
-	margin-top : 10px;
-
+.box {
+	width         : 250px;
+	height        : 250px;
+	border        : 1px solid #333;
+	color         : #EEE;
+	padding       : 20px;
+	box-sizing    : border-box;
+	margin-bottom : 20px;
 }
 
-.increment {
-	font-size : 1.25rem;
-	min-width: 30px;
-}
-
-#modifier {
-	position : fixed;
-	top: 50px;
-	right: 50px
+.red {
+	background : crimson;
 }
 
 button {
-	font-size : 1.25rem;
-	padding: 1rem;
+	padding       : 10px 20px;
+	border-radius : 6px;
+	border        : 1px solid #4444;
+	color         : #555;
 }

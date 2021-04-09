@@ -9,47 +9,18 @@
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<h2>Compteur A : {{ checkValue() }}</h2>
-		<button class="increment" @click="diminuer">-</button>
-		<button class="increment" v-on:click="augmenter">+</button>
-		<hr>
-		<h2>Compteur B : {{ compteurB }} | {{ memo }}</h2>
-		<button class="increment" v-on:click="compteurB--">-</button>
-		<button class="increment" v-on:click="compteurB++">+</button>
+		<div class="box" v-bind:class="{ red: toggleColor }">
+			<p>Lorem ipsum dolor sit amet.</p>
+		</div>
+		<button v-on:click=" toggleColor = !toggleColor">background ON/OFF</button>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
 		new Vue( {
-					 el      : '#app',
-					 data    : {
-						 compteurA: 0,
-						 compteurB: 0
-					 },
-					 methods : {
-						 augmenter : function () {
-							 this.compteurA++;
-						 },
-						 diminuer  : function () {
-							 this.compteurA--;
-						 },
-						 checkValue: function () {
-							 console.log( "La fonction s'est lancée !" );
-							 return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
-						 }
-					 },
-					 watch   : {
-						 compteurA: function () {
-							 setTimeout( () => {
-								 this.compteurA = 0;
-							 }, 10000 );
-						 }
-					 },
-					 computed: {
-						 memo: function () {
-							 console.log( "\"memo\" s'est lancée !" );
-							 return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
-						 }
+					 el  : '#app',
+					 data: {
+						 toggleColor: true
 					 }
 				 } );
 	</script>
