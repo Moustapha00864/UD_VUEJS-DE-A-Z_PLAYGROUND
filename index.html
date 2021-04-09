@@ -9,7 +9,7 @@
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<div v-bind:class="[boxCSS, 'border']">
+		<div v-bind:class="[boxCSS, toggleColor ? 'border2' : 'border1']">
 			<p>Lorem ipsum dolor sit amet.</p>
 		</div>
 		<button v-on:click=" toggleColor = !toggleColor">background ON/OFF</button>
