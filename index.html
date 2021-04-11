@@ -9,9 +9,10 @@
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<p v-if="toggleBox" class="box red">v-if ACTIF</p>
-		<p v-else="toggleBox">v-else ACTIF</p>
-		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>
+		<p v-if="num === 1 ">la valeur est 1</p>
+		<p v-else-if="num === 2">la valeur est 2</p>
+		<p v-else-if="num === 3">la valeur est 3</p>
+<!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -19,6 +20,7 @@
 		new Vue( {
 					 el  : '#app',
 					 data: {
+						 num      : 2,
 						 toggleBox: true
 					 }
 				 } );
