@@ -10,7 +10,9 @@
 	<div id="app">
 		<h1>Cours Vue.js</h1>
 		<ul>
-			<li v-for="(value, props) in objetChien">{{ props }} : {{ value }}</li>
+			<li v-for="objet in objetChien">
+				<div v-for="(value, props) in objet">{{ props }} : {{ value }}</div><br>
+			</li>
 		</ul>
 		<!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
 	</div>
@@ -20,11 +22,18 @@
 		new Vue( {
 					 el  : '#app',
 					 data: {
-						 objetChien: {
-							 race : "Cocker Spaniel",
-							 age  : 11,
-							 poids: 13
-						 },
+						 objetChien: [
+							 {
+								 race : "Cocker Spaniel",
+								 age  : 11,
+								 poids: 13
+							 },
+							 {
+								 race : "Cocker Américain",
+								 age  : 12,
+								 poids: 11
+							 }
+						 ],
 						 toggleBox : true
 					 }
 				 } );
