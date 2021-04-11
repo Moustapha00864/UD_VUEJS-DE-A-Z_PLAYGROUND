@@ -14,19 +14,31 @@
 		</div>
 		<button v-on:click=" toggleColor = !toggleColor">background ON/OFF</button>
 	</div>
+	<hr>
+	<p :style="stylePersonnalise">Lorem ipsum dolor sit amet, consectetur adipisicing
+								  elit. Consectetur cumque earum explicabo ipsum minima, mollitia quaerat quod rem
+								  repellendus reprehenderit. Amet consectetur laboriosam minima odit.</p>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
 		new Vue( {
 					 el      : '#app',
 					 data    : {
-						 toggleColor: false
+						 toggleColor: true,
+						 color      : 'lightblue',
+						 width      : 200
 					 },
 					 computed: {
-						 boxCSS: function () {
+						 boxCSS           : function () {
 							 return {
-								 red: this.toggleColor,
+								 red: true,
 								 box: true
+							 };
+						 },
+						 stylePersonnalise: function () {
+							 return {
+								 backgroundColor: this.color,
+								 width          : this.width + 'px'
 							 };
 						 }
 					 }
