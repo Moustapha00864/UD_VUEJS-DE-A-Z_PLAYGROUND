@@ -24,9 +24,24 @@ body {
 	background : crimson;
 }
 
+.blue {
+	border : 4px solid #40BFC1;
+}
+
 button {
 	padding       : 10px 20px;
 	border-radius : 6px;
 	border        : 1px solid #4444;
 	color         : #555;
+}
+
+.round {
+	width         : 250px;
+	height        : 250px;
+
+	color         : #EEE;
+	padding       : 20px;
+	box-sizing    : border-box;
+	margin-bottom : 20px;
+	border-radius: 50%;
 }

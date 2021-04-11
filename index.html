@@ -9,9 +9,8 @@
 <body>
 	<div id="app">
 		<h1>Cours Vue.js</h1>
-		<div v-if="toggleBox" class="box red">
-			<p>Lorem ipsum dolor sit amet.</p>
-		</div>
+		<p v-if="toggleBox" class="box red">v-if ACTIF</p>
+		<p v-else="toggleBox">v-else ACTIF</p>
 		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>
 	</div>
 
