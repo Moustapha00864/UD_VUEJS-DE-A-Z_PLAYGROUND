@@ -10,7 +10,7 @@
 	<div id="app">
 		<h1>Cours Vue.js</h1>
 		<ul>
-			<li v-for="(fruit, index) in tableauFruits">Index {{ index }} : {{ fruit }}</li>
+			<li v-for="(value, props) in objetChien">{{ props }} : {{ value }}</li>
 		</ul>
 		<!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
 	</div>
@@ -20,8 +20,12 @@
 		new Vue( {
 					 el  : '#app',
 					 data: {
-						 tableauFruits: [ "Fraise", "Pomme", "Poire" ],
-						 toggleBox    : true
+						 objetChien: {
+							 race : "Cocker Spaniel",
+							 age  : 11,
+							 poids: 13
+						 },
+						 toggleBox : true
 					 }
 				 } );
 	</script>
