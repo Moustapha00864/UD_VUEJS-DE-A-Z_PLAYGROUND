@@ -10,9 +10,9 @@
 	<div id="app">
 		<h1>Cours Vue.js</h1>
 		<ul>
-			<li v-for="number in tableau">Lien #{{ number }}</li>
+			<li v-for="(fruit, index) in tableauFruits">Index {{ index }} : {{ fruit }}</li>
 		</ul>
-<!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
+		<!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -20,8 +20,8 @@
 		new Vue( {
 					 el  : '#app',
 					 data: {
-						 tableau  : [ 1, 2, 3, 4, 5 ],
-						 toggleBox: true
+						 tableauFruits: [ "Fraise", "Pomme", "Poire" ],
+						 toggleBox    : true
 					 }
 				 } );
 	</script>
