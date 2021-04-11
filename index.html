@@ -12,6 +12,7 @@
 		<p v-if="num === 1 ">la valeur est 1</p>
 		<p v-else-if="num === 2">la valeur est 2</p>
 		<p v-else-if="num === 3">la valeur est 3</p>
+		<p v-else>la valeur n'est ni 1, ni 2, ni 3 !</p>
 <!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
 	</div>
 
@@ -20,7 +21,7 @@
 		new Vue( {
 					 el  : '#app',
 					 data: {
-						 num      : 2,
+						 num      : 4,
 						 toggleBox: true
 					 }
 				 } );
