@@ -7,36 +7,38 @@
 	<link href="style.css" rel="stylesheet">
 </head>
 <body>
-	<div id="app">
-		<h1>Cours Vue.js</h1>
-		<ul>
-			<li v-for="objet in objetChien">
-				<div v-for="(value, props) in objet">{{ props }} : {{ value }}</div><br>
-			</li>
-		</ul>
-		<!--		<button v-on:click=" toggleBox = !toggleBox">ON/OFF</button>-->
+	<div id="app1">
+
+	</div>
+
+	<div id="app2">
+		<h1>{{ txt }}</h1>
+		<button v-on:click="function1">ON/OFF</button>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script>
-		new Vue( {
-					 el  : '#app',
-					 data: {
-						 objetChien: [
-							 {
-								 race : "Cocker Spaniel",
-								 age  : 11,
-								 poids: 13
-							 },
-							 {
-								 race : "Cocker Américain",
-								 age  : 12,
-								 poids: 11
-							 }
-						 ],
-						 toggleBox : true
-					 }
-				 } );
+		const instance1 = new Vue( {
+									   template: '<h1>{{ txt }}</h1>',
+									   data    : {
+										   txt: "Hello App #1"
+									   }
+								   } );
+
+		instance1.$mount();
+		document.getElementById( 'app1' ).appendChild( instance1.$el );
+		const instance2 = new Vue( {
+									   el     : '#app2',
+									   data   : {
+										   txt: "Hello App #2"
+									   },
+									   methods: {
+										   function1: function () {
+											   instance1.txt = "Instance 1, je t'ai changée !";
+										   }
+									   }
+								   } );
+		console.log( instance1.txt );
 	</script>
 </body>
 </html>
